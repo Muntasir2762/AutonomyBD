@@ -10,6 +10,7 @@ import {
 import Dashboard from './Components/Dashboard';
 import Home from './Components/Home';
 import Addproduct from './Components/Addproduct';
+import Editproduct from './Components/Editproduct';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <NavLink activeClassName="active" to="/login">LogIn</NavLink>
         <NavLink activeClassName="active" to="/dashboard">All Products</NavLink>
         <NavLink activeClassName="active" to="/add">Add Product</NavLink>
+        
 
       </div>
 
@@ -31,6 +33,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/add" component={Addproduct} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/edit/:id" component={Editproduct} />
         </Switch>
       </div>
 

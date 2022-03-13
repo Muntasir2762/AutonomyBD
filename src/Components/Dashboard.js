@@ -13,7 +13,11 @@ const DashBoard = () => {
     axios.get(" http://51.195.148.112/api/admin/product-type/",{headers:headers}).then(res=>setProduct(res.data.data))
   }, []);
   const deleteUser = async id => {
-    await axios.delete(`http://51.195.148.112/api/admin/product-type/${id}`);
+    const headers={
+      'Authorization':`Bearer ${Token}`
+  } 
+    await axios.delete(`http://51.195.148.112/api/admin/product-type/${id}`,{headers:headers});
+    axios.get(" http://51.195.148.112/api/admin/product-type/",{headers:headers}).then(res=>setProduct(res.data.data))
   };
   return (
     <div className="w-full mt-12">
@@ -38,7 +42,7 @@ const DashBoard = () => {
             <td class="py-4 px-6 border-b border-grey-light">
                   <Link
                     class="btn btn-outline-primary mr-2"
-                    to={`/product/edit/${product.id}`}
+                    to={`/edit/${product.id}`}
                   >
                     Edit
                   </Link>
